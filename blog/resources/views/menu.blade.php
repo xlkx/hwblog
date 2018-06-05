@@ -16,3 +16,4 @@
 		<a href="#parse">Parse</a>
 	</li>
 </ul>
+<div class="clear"></div>
