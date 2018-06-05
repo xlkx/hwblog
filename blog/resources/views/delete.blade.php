@@ -6,10 +6,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="bookreader">
 		<link rel="stylesheet" href="css/style.css">
-		<script src="script/vue.min.js"></script>
 		<title><?=$title?></title>
 	</head>
 	<body>
-		<?=$content?>
+		<div id="menu">
+			<div class="wrap">
+				@include('menu')
+			</div>
+		</div>
+		<div id="contain">
+			<div class="wrap">
+				<main>
+					{{$user}}
+					{{$wordToPut}}
+				</main>
+			</div>
+		</div>
+		<footer>
+			<div class="wrap">
+				<div id="footer">
+					@include('blocks.footer')
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
