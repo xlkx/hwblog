@@ -14,9 +14,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    protected $namespace = 'App\Http\Controllers\Test';
     protected $namespaceClient = 'App\Http\Controllers\Client';
-	protected $namespaceAdmin = 'App\Http\Controllers\Admin';
+    protected $namespaceAdmin = 'App\Http\Controllers\Admin';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -25,8 +25,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
@@ -35,15 +33,16 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function map()
     {
-        $this->mapApiRoutes();
+      $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
-		
-		$this->mapAdminRoutes();
-		
-		$this->mapClientRoutes();
+      $this->mapWebRoutes();
+
+      $this->mapAdminRoutes();
+
+      $this->mapClientRoutes();
 
         //
     }
@@ -55,12 +54,13 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     protected function mapWebRoutes()
     {
-		Route::middleware('web')
-			->prefix('test')
-			->namespace($this->namespace)
-			->group(base_path('routes/web.php'));
+  		Route::middleware('web')
+  			->prefix('test')
+  			->namespace($this->namespace)
+  			->group(base_path('routes/web.php'));
 		}
 
     /**
@@ -70,25 +70,26 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+      Route::prefix('api')
+        ->middleware('api')
+        ->namespace($this->namespace)
+        ->group(base_path('routes/api.php'));
     }
-	
-	protected function mapAdminRoutes () {
-		Route::middleware('web')
-			->prefix('/admin')
-			->namespace($this->namespaceAdmin)
-			->group(base_path('routes/admin.php'));
-	}
-	
-	protected function mapClientRoutes() {
-		Route::middleware('web')
-			->namespace($this->namespaceClient)
-			->group(base_path('routes/client.php'));
-	}
-					
+
+    protected function mapAdminRoutes () {
+      Route::middleware('web')
+        ->prefix('/admin')
+        ->namespace($this->namespaceAdmin)
+        ->group(base_path('routes/admin.php'));
+    }
+
+    protected function mapClientRoutes() {
+      Route::middleware('web')
+        ->namespace($this->namespaceClient)
+        ->group(base_path('routes/client.php'));
+    }
+
 }

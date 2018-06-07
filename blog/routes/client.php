@@ -1,5 +1,12 @@
 <?php
 
+Route::group(['prefix'=>'/'], function () {
+	Route::get('/', 'MainController@index')
+		->name('main');
+	Route::get('e404', 'MainController@e404')
+		->name('main.e404');
+});
+
 Route::group(['prefix'=>'word'], function () {
 	Route::get('/', 'WordController@index')
 		->name('word.index');
