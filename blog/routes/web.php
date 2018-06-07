@@ -18,14 +18,15 @@ Route::get('/', function () {
 */
 
 Route::group(['prefix'=>'/'], function () {
-	Route::get('/', 'TestController@index')
-		->name('test.index');
-	Route::post('/', 'TestController@postIndex')
-		->name('test.post');
+	Route::get('/', 'MainController@index')
+		->name('mainPage');
 	Route::get('test', 'TestController@test')
 		->name('test.test');
 	Route::get('redirect', 'TestController@testRedirect')
 		->name('test.redirect');
+	Route::get('gen', 'MainController@generate');
+	Route::get('gen2', 'MainController@generate2');
+	Route::get('gen3', 'MainController@generate3');
 });
 
 Route::get('tru', function () {

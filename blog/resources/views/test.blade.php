@@ -7,9 +7,11 @@
 		<meta name="description" content="bookreader">
 		<link rel="stylesheet" href="css/style.css">
 		<script src="script/vue.min.js"></script>
-		<title><?=$title?></title>
+		<title>{{$title}}</title>
 	</head>
 	<body>
-		<?=$content?>
+		<div id="container">
+			{{$data}}
+		</div>
 	</body>
 </html>
